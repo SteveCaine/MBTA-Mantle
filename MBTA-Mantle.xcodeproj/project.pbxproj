@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8EE425901BDED4F8007054D0 /* Debug_iOS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4254B1BDED4F8007054D0 /* Debug_iOS.cpp */; };
+		8EE425911BDED4F8007054D0 /* Debug_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4254D1BDED4F8007054D0 /* Debug_iOS.m */; };
+		8EE425921BDED4F8007054D0 /* Debug_JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4254F1BDED4F8007054D0 /* Debug_JSON.m */; };
+		8EE425C51BDED52D007054D0 /* FilesUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE425BF1BDED52D007054D0 /* FilesUtil.m */; };
+		8EE425C61BDED52D007054D0 /* FolderWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE425C11BDED52D007054D0 /* FolderWatcher.m */; };
+		8EE425DC1BDEFF21007054D0 /* 1-servertime.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EE425D71BDEFF21007054D0 /* 1-servertime.json */; };
+		8EE425DD1BDEFF21007054D0 /* 2-routes.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EE425D81BDEFF21007054D0 /* 2-routes.json */; };
+		8EE425DE1BDEFF21007054D0 /* 3-stopsbyroute.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EE425D91BDEFF21007054D0 /* 3-stopsbyroute.json */; };
+		8EE425DF1BDEFF21007054D0 /* 4-routesbystop.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EE425DA1BDEFF21007054D0 /* 4-routesbystop.json */; };
+		8EE425E01BDEFF21007054D0 /* 5-stopsbylocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EE425DB1BDEFF21007054D0 /* 5-stopsbylocation.json */; };
+		8EE425E71BDF0046007054D0 /* TServerTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE425E61BDF0046007054D0 /* TServerTime.m */; };
+		8EE425EA1BDF02D3007054D0 /* TRoutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE425E91BDF02D3007054D0 /* TRoutes.m */; };
+		8EE425ED1BDF2115007054D0 /* TRequestTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE425EC1BDF2115007054D0 /* TRequestTypes.m */; };
+		8EE425F01BDF2D2F007054D0 /* TStops.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE425EF1BDF2D2F007054D0 /* TStops.m */; };
+		8EE425F21BDF3747007054D0 /* 5b-stopsbylocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EE425F11BDF3747007054D0 /* 5b-stopsbylocation.json */; };
 		8EFE67061BDECDC80024D6AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFE67051BDECDC80024D6AF /* Foundation.framework */; };
 		8EFE67081BDECDC80024D6AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFE67071BDECDC80024D6AF /* CoreGraphics.framework */; };
 		8EFE670A1BDECDC80024D6AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFE67091BDECDC80024D6AF /* UIKit.framework */; };
@@ -37,6 +52,33 @@
 
 /* Begin PBXFileReference section */
 		3FC9FC1A41E744830237DD54 /* Pods-MBTA-Mantle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBTA-Mantle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MBTA-Mantle/Pods-MBTA-Mantle.debug.xcconfig"; sourceTree = "<group>"; };
+		8EE4254B1BDED4F8007054D0 /* Debug_iOS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Debug_iOS.cpp; sourceTree = "<group>"; };
+		8EE4254C1BDED4F8007054D0 /* Debug_iOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debug_iOS.h; sourceTree = "<group>"; };
+		8EE4254D1BDED4F8007054D0 /* Debug_iOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Debug_iOS.m; sourceTree = "<group>"; };
+		8EE4254E1BDED4F8007054D0 /* Debug_JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debug_JSON.h; sourceTree = "<group>"; };
+		8EE4254F1BDED4F8007054D0 /* Debug_JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Debug_JSON.m; sourceTree = "<group>"; };
+		8EE4258A1BDED4F8007054D0 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		8EE4258D1BDED4F8007054D0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8EE425BE1BDED52D007054D0 /* FilesUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesUtil.h; sourceTree = "<group>"; };
+		8EE425BF1BDED52D007054D0 /* FilesUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesUtil.m; sourceTree = "<group>"; };
+		8EE425C01BDED52D007054D0 /* FolderWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderWatcher.h; sourceTree = "<group>"; };
+		8EE425C11BDED52D007054D0 /* FolderWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FolderWatcher.m; sourceTree = "<group>"; };
+		8EE425C21BDED52D007054D0 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		8EE425C31BDED52D007054D0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8EE425D71BDEFF21007054D0 /* 1-servertime.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-servertime.json"; sourceTree = "<group>"; };
+		8EE425D81BDEFF21007054D0 /* 2-routes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "2-routes.json"; sourceTree = "<group>"; };
+		8EE425D91BDEFF21007054D0 /* 3-stopsbyroute.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "3-stopsbyroute.json"; sourceTree = "<group>"; };
+		8EE425DA1BDEFF21007054D0 /* 4-routesbystop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4-routesbystop.json"; sourceTree = "<group>"; };
+		8EE425DB1BDEFF21007054D0 /* 5-stopsbylocation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "5-stopsbylocation.json"; sourceTree = "<group>"; };
+		8EE425E51BDF0046007054D0 /* TServerTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TServerTime.h; path = "MBTA-Data/TServerTime.h"; sourceTree = "<group>"; };
+		8EE425E61BDF0046007054D0 /* TServerTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TServerTime.m; path = "MBTA-Data/TServerTime.m"; sourceTree = "<group>"; };
+		8EE425E81BDF02D3007054D0 /* TRoutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRoutes.h; path = "MBTA-Data/TRoutes.h"; sourceTree = "<group>"; };
+		8EE425E91BDF02D3007054D0 /* TRoutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRoutes.m; path = "MBTA-Data/TRoutes.m"; sourceTree = "<group>"; };
+		8EE425EB1BDF2115007054D0 /* TRequestTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRequestTypes.h; path = "MBTA-Data/TRequestTypes.h"; sourceTree = "<group>"; };
+		8EE425EC1BDF2115007054D0 /* TRequestTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRequestTypes.m; path = "MBTA-Data/TRequestTypes.m"; sourceTree = "<group>"; };
+		8EE425EE1BDF2D2F007054D0 /* TStops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TStops.h; path = "MBTA-Data/TStops.h"; sourceTree = "<group>"; };
+		8EE425EF1BDF2D2F007054D0 /* TStops.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TStops.m; path = "MBTA-Data/TStops.m"; sourceTree = "<group>"; };
+		8EE425F11BDF3747007054D0 /* 5b-stopsbylocation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "5b-stopsbylocation.json"; sourceTree = "<group>"; };
 		8EFE67021BDECDC80024D6AF /* MBTA-Mantle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MBTA-Mantle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EFE67051BDECDC80024D6AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8EFE67071BDECDC80024D6AF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -96,9 +138,69 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8EE425471BDED4F8007054D0 /* DebugUtil */ = {
+			isa = PBXGroup;
+			children = (
+				8EE4254B1BDED4F8007054D0 /* Debug_iOS.cpp */,
+				8EE4254C1BDED4F8007054D0 /* Debug_iOS.h */,
+				8EE4254D1BDED4F8007054D0 /* Debug_iOS.m */,
+				8EE4254E1BDED4F8007054D0 /* Debug_JSON.h */,
+				8EE4254F1BDED4F8007054D0 /* Debug_JSON.m */,
+				8EE4258A1BDED4F8007054D0 /* LICENSE */,
+				8EE4258D1BDED4F8007054D0 /* README.md */,
+			);
+			name = DebugUtil;
+			path = ../DebugUtil;
+			sourceTree = "<group>";
+		};
+		8EE425BC1BDED52D007054D0 /* FilesUtil */ = {
+			isa = PBXGroup;
+			children = (
+				8EE425BE1BDED52D007054D0 /* FilesUtil.h */,
+				8EE425BF1BDED52D007054D0 /* FilesUtil.m */,
+				8EE425C01BDED52D007054D0 /* FolderWatcher.h */,
+				8EE425C11BDED52D007054D0 /* FolderWatcher.m */,
+				8EE425C21BDED52D007054D0 /* LICENSE */,
+				8EE425C31BDED52D007054D0 /* README.md */,
+			);
+			name = FilesUtil;
+			path = ../FilesUtil;
+			sourceTree = "<group>";
+		};
+		8EE425CC1BDEF52D007054D0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8EE425D71BDEFF21007054D0 /* 1-servertime.json */,
+				8EE425D81BDEFF21007054D0 /* 2-routes.json */,
+				8EE425D91BDEFF21007054D0 /* 3-stopsbyroute.json */,
+				8EE425DA1BDEFF21007054D0 /* 4-routesbystop.json */,
+				8EE425DB1BDEFF21007054D0 /* 5-stopsbylocation.json */,
+				8EE425F11BDF3747007054D0 /* 5b-stopsbylocation.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8EE425E41BDEFFE6007054D0 /* MBTA-Data */ = {
+			isa = PBXGroup;
+			children = (
+				8EE425E51BDF0046007054D0 /* TServerTime.h */,
+				8EE425E61BDF0046007054D0 /* TServerTime.m */,
+				8EE425E81BDF02D3007054D0 /* TRoutes.h */,
+				8EE425E91BDF02D3007054D0 /* TRoutes.m */,
+				8EE425EB1BDF2115007054D0 /* TRequestTypes.h */,
+				8EE425EC1BDF2115007054D0 /* TRequestTypes.m */,
+				8EE425EE1BDF2D2F007054D0 /* TStops.h */,
+				8EE425EF1BDF2D2F007054D0 /* TStops.m */,
+			);
+			name = "MBTA-Data";
+			sourceTree = "<group>";
+		};
 		8EFE66F91BDECDC80024D6AF = {
 			isa = PBXGroup;
 			children = (
+				8EE425471BDED4F8007054D0 /* DebugUtil */,
+				8EE425BC1BDED52D007054D0 /* FilesUtil */,
+				8EE425E41BDEFFE6007054D0 /* MBTA-Data */,
 				8EFE670B1BDECDC80024D6AF /* MBTA-Mantle */,
 				8EFE672D1BDECDC80024D6AF /* MBTA-MantleTests */,
 				8EFE67041BDECDC80024D6AF /* Frameworks */,
@@ -139,6 +241,7 @@
 				8EFE671D1BDECDC80024D6AF /* DetailViewController.h */,
 				8EFE671E1BDECDC80024D6AF /* DetailViewController.m */,
 				8EFE67201BDECDC80024D6AF /* Images.xcassets */,
+				8EE425CC1BDEF52D007054D0 /* Resources */,
 				8EFE670C1BDECDC80024D6AF /* Supporting Files */,
 			);
 			path = "MBTA-Mantle";
@@ -251,9 +354,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EE425F21BDF3747007054D0 /* 5b-stopsbylocation.json in Resources */,
+				8EE425DE1BDEFF21007054D0 /* 3-stopsbyroute.json in Resources */,
 				8EFE67211BDECDC80024D6AF /* Images.xcassets in Resources */,
+				8EE425DF1BDEFF21007054D0 /* 4-routesbystop.json in Resources */,
+				8EE425DC1BDEFF21007054D0 /* 1-servertime.json in Resources */,
 				8EFE67101BDECDC80024D6AF /* InfoPlist.strings in Resources */,
+				8EE425E01BDEFF21007054D0 /* 5-stopsbylocation.json in Resources */,
 				8EFE67191BDECDC80024D6AF /* Main.storyboard in Resources */,
+				8EE425DD1BDEFF21007054D0 /* 2-routes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,10 +414,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EE425E71BDF0046007054D0 /* TServerTime.m in Sources */,
 				8EFE67161BDECDC80024D6AF /* AppDelegate.m in Sources */,
+				8EE425911BDED4F8007054D0 /* Debug_iOS.m in Sources */,
+				8EE425901BDED4F8007054D0 /* Debug_iOS.cpp in Sources */,
+				8EE425ED1BDF2115007054D0 /* TRequestTypes.m in Sources */,
+				8EE425EA1BDF02D3007054D0 /* TRoutes.m in Sources */,
 				8EFE671C1BDECDC80024D6AF /* MasterViewController.m in Sources */,
 				8EFE67121BDECDC80024D6AF /* main.m in Sources */,
 				8EFE671F1BDECDC80024D6AF /* DetailViewController.m in Sources */,
+				8EE425C61BDED52D007054D0 /* FolderWatcher.m in Sources */,
+				8EE425921BDED4F8007054D0 /* Debug_JSON.m in Sources */,
+				8EE425F01BDF2D2F007054D0 /* TStops.m in Sources */,
+				8EE425C51BDED52D007054D0 /* FilesUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
