@@ -30,6 +30,11 @@
 	return result;
 }
 
+- (NSString *)description {
+	NSMutableString *result = [NSMutableString stringWithFormat:@"%@ servertime = %@", NSStringFromClass(self.class), self.servertime];
+	return result;
+}
+
 // ----------------------------------------------------------------------
 
 + (NSValueTransformer *)servertimeJSONTransformer {

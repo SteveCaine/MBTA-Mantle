@@ -16,6 +16,9 @@
 #import "TRoutes.h"
 #import "TStops.h"
 
+#import "KVServerTime.h"
+#import "KVStops.h"
+
 #import "FilesUtil.h"
 
 #import "Debug_iOS.h"
@@ -33,9 +36,15 @@ static NSString * const subtitle_failed  = @"Failed!";
 
 static const NSTimeInterval resetDelay = 2.5;
 
+enum {
+	section_mantle,
+	section_kvcoding,
+};
+
 // ----------------------------------------------------------------------
 
 @interface MasterViewController ()
+@property (strong, nonatomic) NSArray *sectionNames;
 @property (strong, nonatomic) NSArray *jsonNames;
 @end
 
@@ -45,58 +54,130 @@ static const NSTimeInterval resetDelay = 2.5;
 
 @implementation MasterViewController
 
-- (BOOL)parseJSON:(NSString *)jsonPath {
-	BOOL result = NO;
+- (NSDictionary *)readJSON:(NSString *)jsonPath {
+	NSDictionary * result = nil;
 	
 	NSData *data = [NSData dataWithContentsOfFile:jsonPath];
 	if ([data length]) {
 		MyLog(@"%s read %i bytes", __FUNCTION__, data.length);
-		
 		NSError *error = nil;
-		id json = nil;
+		id dict = nil;
 		
 		@try {
-			json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+			dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
 		}
 		@catch (NSException *exception) {
 			NSLog(@"Exception thrown: %@", exception);
 		}
 		if (error)
 			NSLog(@"JSON de-serializing error: %@", [error localizedDescription]);
-
-		else if (json == nil || ![json isKindOfClass:[NSDictionary class]])
+		
+		else if (dict == nil || ![dict isKindOfClass:[NSDictionary class]])
 			NSLog(@"Nil/Invalid JSON.");
 		
 		else {
-			NSString *name = [[FilesUtil namesFromPaths:@[jsonPath] stripExtensions:YES] firstObject];
-			TRequestType requestType = [TRequestTypes findRequestTypeInName:name];
-			
-			id obj = nil;
-			switch (requestType) {
-				case TRequest_servertime:
-					obj = [MTLJSONAdapter modelOfClass:[TServerTime class] fromJSONDictionary:json error:&error];
-					break;
-				case TRequest_routes:
-					obj = [MTLJSONAdapter modelOfClass:[TRoutes class] fromJSONDictionary:json error:&error];
-					break;
-				case TRequest_routesbystop:
-					obj = [MTLJSONAdapter modelOfClass:[TRoutesByStop class] fromJSONDictionary:json error:&error];
-					break;
-				case TRequest_stopsbyroute:
-					obj = [MTLJSONAdapter modelOfClass:[TStopsByRoute class] fromJSONDictionary:json error:&error];
-					break;
-				case TRequest_stopsbylocation:
-					obj = [MTLJSONAdapter modelOfClass:[TStopsByLocation class] fromJSONDictionary:json error:&error];
-					break;
-				default:
-					break;
-			}
-			if (error)
-				NSLog(@"Mantle error: %@", [error localizedDescription]);
-			else if (obj) {
-				MyLog(@" obj => %@", obj);
-				result = YES;
-			}
+			result = dict;
+		}
+	}
+	return result;
+}
+
+// ----------------------------------------------------------------------
+
+- (id)dict2KVObject:(NSDictionary *)dict forType:(TRequestType)requestType {
+	id obj = nil;
+	
+	if (dict.count && requestType != TRequest_invalid) {
+		switch (requestType) {
+			case TRequest_servertime:
+				obj = [[KVServerTime alloc] initWithDictionary:dict];
+				break;
+			case TRequest_routes:
+				break;
+			case TRequest_routesbystop:
+				break;
+			case TRequest_stopsbyroute:
+				break;
+			case TRequest_stopsbylocation: {
+				CLLocationCoordinate2D location = { 41, -71 };
+				obj = [[KVStopsByLocation alloc] initWithDictionary:dict location:location];
+			}	break;
+			default:
+				break;
+		}
+	}
+	
+	return obj;
+}
+
+// ----------------------------------------------------------------------
+
+- (id)dict2MantleObject:(NSDictionary *)dict forType:(TRequestType)requestType {
+	id obj = nil;
+	
+	if (dict.count && requestType != TRequest_invalid) {
+		NSError *error = nil;
+		switch (requestType) {
+			case TRequest_servertime:
+				obj = [MTLJSONAdapter modelOfClass:[TServerTime class] fromJSONDictionary:dict error:&error];
+				break;
+			case TRequest_routes:
+				obj = [MTLJSONAdapter modelOfClass:[TRoutes class] fromJSONDictionary:dict error:&error];
+				break;
+			case TRequest_routesbystop:
+				obj = [MTLJSONAdapter modelOfClass:[TRoutesByStop class] fromJSONDictionary:dict error:&error];
+				break;
+			case TRequest_stopsbyroute:
+				obj = [MTLJSONAdapter modelOfClass:[TStopsByRoute class] fromJSONDictionary:dict error:&error];
+				// set .routeID here from request
+				break;
+			case TRequest_stopsbylocation:
+				obj = [MTLJSONAdapter modelOfClass:[TStopsByLocation class] fromJSONDictionary:dict error:&error];
+				// set .location here from request
+				break;
+			default:
+				break;
+		}
+		if (error)
+			NSLog(@"dict2Mantle error: %@", [error localizedDescription]);
+	}
+	return obj;
+}
+
+// ----------------------------------------------------------------------
+
+- (BOOL)useKVCoding:(NSString *)jsonPath {
+	BOOL result = NO;
+	
+	NSDictionary *dict = [self readJSON:jsonPath];
+	if (dict) {
+		NSString *name = [[FilesUtil namesFromPaths:@[jsonPath] stripExtensions:YES] firstObject];
+		TRequestType requestType = [TRequestTypes findRequestTypeInName:name];
+		MyLog(@" request type = '%@'", [TRequestTypes nameOfRequest:requestType]);
+		id obj = [self dict2KVObject:dict forType:requestType];
+		if (obj) {
+			MyLog(@" obj => %@", obj);
+			result = YES;
+		}
+	}
+	
+	return result;
+}
+
+// ----------------------------------------------------------------------
+
+- (BOOL)useMantle:(NSString *)jsonPath {
+	BOOL result = NO;
+	
+	NSDictionary *dict = [self readJSON:jsonPath];
+	if (dict) {
+		NSString *name = [[FilesUtil namesFromPaths:@[jsonPath] stripExtensions:YES] firstObject];
+		TRequestType requestType = [TRequestTypes findRequestTypeInName:name];
+		MyLog(@" request type = '%@'", [TRequestTypes nameOfRequest:requestType]);
+		id obj = [self dict2MantleObject:dict forType:requestType];
+		if (obj) {
+			MyLog(@" obj => %@", obj);
+			result = YES;
 		}
 	}
 	return result;
@@ -116,6 +197,8 @@ static const NSTimeInterval resetDelay = 2.5;
 
 - (void)awakeFromNib {
 	[super awakeFromNib];
+	
+	self.sectionNames = @[ @"Mantle", @"KV-Coding", ];
 
 	NSArray *jsonPaths = [FilesUtil pathsForBundleFilesType:type_json sortedBy:SortFiles_alphabeticalAscending];
 	
@@ -137,7 +220,13 @@ static const NSTimeInterval resetDelay = 2.5;
 // ----------------------------------------------------------------------
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return 1;
+	return self.sectionNames.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	if (section < self.sectionNames.count)
+		return self.sectionNames[section];
+	return nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -155,14 +244,16 @@ static const NSTimeInterval resetDelay = 2.5;
 	
 	cell.detailTextLabel.text = subtitle_idle;
 	
-	switch (indexPath.row + 1) {
-		case TRequest_servertime:
-		case TRequest_stopsbylocation:
-		case TRequest_stopsbylocation + 1:
-			break;
-		default:
-			cell.userInteractionEnabled = cell.textLabel.enabled = cell.detailTextLabel.enabled = NO;
-			break;
+	if (indexPath.section == section_kvcoding) {
+		switch (indexPath.row + 1) {
+			case TRequest_servertime:
+			case TRequest_stopsbylocation:
+			case TRequest_stopsbylocation + 1:
+				break;
+			default:
+				cell.userInteractionEnabled = cell.textLabel.enabled = cell.detailTextLabel.enabled = NO;
+				break;
+		}
 	}
 	
 	return cell;
@@ -180,7 +271,19 @@ static const NSTimeInterval resetDelay = 2.5;
 		NSString *jsonName = self.jsonNames[indexPath.row];
 		NSString *jsonPath = [[NSBundle mainBundle] pathForResource:jsonName ofType:type_json];
 		if ([jsonPath length]) {
-			BOOL success = [self parseJSON:jsonPath];
+			BOOL success = NO;
+			
+			switch (indexPath.section) {
+				case section_kvcoding:
+					success = [self useKVCoding:jsonPath];
+					break;
+				case section_mantle:
+					success = [self useMantle:jsonPath];
+					break;
+				default:
+					break;
+			}
+			
 			cell.detailTextLabel.text = (success ? @"Success!" : @"Failed!");
 			// now post new 'ready' for this row: after X seconds, reset to its original state
 			[self performSelector:@selector(resetForIndexPath:) withObject:indexPath afterDelay:resetDelay];

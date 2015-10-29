@@ -8,6 +8,8 @@
 
 #import "TStops.h"
 
+#import "TRoutes.h"
+
 // ----------------------------------------------------------------------
 
 @interface TStop ()
@@ -27,10 +29,11 @@
 			 @"name"		 : @"stop_name",
 			 @"station"		 : @"parent_station",
 			 @"station_name" : @"parent_station_name",
-			 
+			 // for stopsbyroute
 			 @"order"		 : @"order",
+			 // for stopsbylocation - stop's distance in miles from requested location
 			 @"distance"	 : @"distance",
-			 
+			 // private
 			 @"stop_lat"	 : @"stop_lat",
 			 @"stop_lon"	 : @"stop_lon",
 			 };
@@ -76,7 +79,24 @@
 @implementation TStopsByRoute
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return nil;
+	return @{
+			 @"directions"	: @"direction",
+			 };
+}
+
++ (NSValueTransformer *)directionsJSONTransformer {
+	return [MTLJSONAdapter arrayTransformerWithModelClass:[TRouteDirection class]];
+}
+
+- (NSString *)description {
+	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass([self class]), self];
+	if ([self.directions count]) {
+		int index = 0;
+		for (TRouteDirection *direction in self.directions) {
+			[result appendFormat:@"\n%2i: %@", index++, direction];
+		}
+	}
+	return result;
 }
 
 @end
@@ -88,11 +108,13 @@
 @implementation TStopsByLocation
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{ @"stops" : @"stop" };
+	return @{
+			 @"stops" : @"stop"
+			 };
 }
 
 + (NSValueTransformer *)stopsJSONTransformer {
-	return [MTLJSONAdapter  arrayTransformerWithModelClass:[TStop class]];
+	return [MTLJSONAdapter arrayTransformerWithModelClass:[TStop class]];
 }
 
 - (NSString *)description {

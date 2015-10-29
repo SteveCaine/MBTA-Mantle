@@ -9,6 +9,8 @@
 #import <Mantle/Mantle.h>
 
 // ----------------------------------------------------------------------
+@class TStopsByRoute;
+// ----------------------------------------------------------------------
 
 typedef enum : NSUInteger {
 	mode_unknown,
@@ -22,9 +24,9 @@ typedef enum : NSUInteger {
 
 @interface TRouteDirection : MTLModel <MTLJSONSerializing>
 
-@property (  copy, nonatomic) NSNumber *ID;
-@property (  copy, nonatomic) NSString *name;
-@property (strong, nonatomic) NSArray  *stops;
+@property (assign, nonatomic, readonly) NSUInteger	ID;
+@property (  copy, nonatomic, readonly) NSString	*name;
+@property (strong, nonatomic, readonly) NSArray		*stops;
 
 @end
 
@@ -32,11 +34,14 @@ typedef enum : NSUInteger {
 
 @interface TRoute : MTLModel <MTLJSONSerializing>
 
-@property (  copy, nonatomic) NSString	*ID;
-@property (  copy, nonatomic) NSString	*name;
-@property (  copy, nonatomic) NSString	*noUI; // BOOL
-@property (assign, nonatomic) RouteMode	 mode;
-@property (strong, nonatomic) NSArray   *directions;
+@property (  copy, nonatomic, readonly) NSString	*ID;
+@property (  copy, nonatomic, readonly) NSString	*name;
+@property (assign, nonatomic, readonly) BOOL		 noUI;
+@property (assign, nonatomic, readonly) RouteMode	 mode;
+// from stopsbyroute called for this route
+@property (strong, nonatomic, readonly) NSArray		*directions;
+
+- (void)updateWithStopsByRoute:(TStopsByRoute *)stops;
 
 @end
 
@@ -44,9 +49,9 @@ typedef enum : NSUInteger {
 
 @interface TRouteMode : MTLModel <MTLJSONSerializing>
 
-@property (  copy, nonatomic) NSNumber *type;
-@property (  copy, nonatomic) NSString *name;
-@property (strong, nonatomic) NSArray  *routes;
+@property (assign, nonatomic, readonly) NSUInteger	 type;
+@property (  copy, nonatomic, readonly) NSString	*name;
+@property (strong, nonatomic, readonly) NSArray		*routes;
 
 @end
 
@@ -54,8 +59,8 @@ typedef enum : NSUInteger {
 
 @interface TRoutes : MTLModel <MTLJSONSerializing>
 
-@property (strong, nonatomic) NSArray *modes;
-// CALC
+@property (strong, nonatomic, readonly) NSArray *modes;
+
 - (TRoute *)routeByID:(NSString *)routeID;
 
 @end
@@ -64,9 +69,9 @@ typedef enum : NSUInteger {
 
 @interface TRoutesByStop : MTLModel <MTLJSONSerializing>
 
-@property (  copy, nonatomic) NSString *stopID;
-@property (  copy, nonatomic) NSString *stopName;
-@property (strong, nonatomic) NSArray  *modes;
+@property (  copy, nonatomic, readonly) NSString *stopID;
+@property (  copy, nonatomic, readonly) NSString *stopName;
+@property (strong, nonatomic, readonly) NSArray  *modes;
 
 @end
 
