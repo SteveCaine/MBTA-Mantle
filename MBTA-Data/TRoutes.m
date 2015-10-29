@@ -10,6 +10,10 @@
 
 #import "TStops.h"
 
+#import "TDataTypes.h"
+
+#import "Debug_iOS.h"
+
 // ----------------------------------------------------------------------
 
 @interface TRoutes ()
@@ -26,8 +30,9 @@
 // ----------------------------------------------------------------------
 
 @interface TRoute ()
-@property (  copy, nonatomic, readonly) NSString *route_hide;
-@property (strong, nonatomic, readwrite) NSArray		*directions;
+@property (assign, nonatomic, readwrite) RouteMode	mode;
+@property (  copy, nonatomic, readonly)  NSString	*route_hide;
+@property (strong, nonatomic, readwrite) NSArray	*directions;
 @end
 
 // ----------------------------------------------------------------------
@@ -98,7 +103,7 @@
 	BOOL numericID = ([self.ID integerValue] != 0);
 	NSString *strID = (numericID ? [NSString stringWithFormat:@"#%@", self.ID] : [NSString stringWithFormat:@"'%@'",self.ID]);
 	
-	[result appendFormat:@"\n\t\t id = '%@', name = '%@'", strID, self.name];
+	[result appendFormat:@"\n\t\t id = %@, name = '%@'", strID, self.name];
 	if ([self.directions count]) {
 		int index = 0;
 		for (TRouteDirection *direction in self.directions) {
@@ -168,8 +173,43 @@
 	return [MTLJSONAdapter arrayTransformerWithModelClass:[TRouteMode class]];
 }
 
+// post-process our object to cross-reference its contents
+- (BOOL)validate:(NSError **)error {
+	
+	self.all_routes = [NSMutableArray array];
+	self.routes_by_mode_name = [NSMutableDictionary dictionary];
+	
+	for (TRouteMode *mode in self.modes) {
+		RouteMode route_mode = [TRouteModes findModeInName:mode.name];
+		for (TRoute * route in mode.routes)
+			route.mode = route_mode;
+		[self.all_routes addObjectsFromArray:mode.routes];
+		// in the case of Subway, this combines routes from both subway modes (Green Line and everything else)
+		NSMutableArray *mode_routes = [self.routes_by_mode_name objectForKey:mode.name];
+		if (mode_routes == nil) {
+			mode_routes = [NSMutableArray arrayWithArray:mode.routes];
+			[self.routes_by_mode_name setObject:mode_routes forKey:mode.name];
+		}
+		[mode_routes addObjectsFromArray:mode.routes];
+	}
+	MyLog(@" self.all_routes => %@", self.all_routes);
+	MyLog(@" self.routes_by_mode_name => %@", self.routes_by_mode_name);
+	return YES;
+}
+
 - (TRoute *)routeByID:(NSString *)routeID {
-	return nil;
+	TRoute *result = nil;
+	for (TRouteMode *mode in self.modes) {
+		for (TRoute *route in mode.routes) {
+			if ([route.ID isEqualToString:routeID]) {
+				result = route;
+				break;
+			}
+			if (result)
+				break;
+		}
+	}
+	return result;
 }
 
 - (NSString *)description {

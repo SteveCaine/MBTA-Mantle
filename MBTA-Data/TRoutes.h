@@ -8,18 +8,10 @@
 
 #import <Mantle/Mantle.h>
 
+#import "TDataTypes.h"
+
 // ----------------------------------------------------------------------
 @class TStopsByRoute;
-// ----------------------------------------------------------------------
-
-typedef enum : NSUInteger {
-	mode_unknown,
-	mode_Subway, // there are two Subway modes: Green Line and everything else
-	mode_Rail,	 // so this enum is part of our logic to combine them
-	mode_Bus,
-	mode_Boat
-} RouteMode;
-
 // ----------------------------------------------------------------------
 
 @interface TRouteDirection : MTLModel <MTLJSONSerializing>

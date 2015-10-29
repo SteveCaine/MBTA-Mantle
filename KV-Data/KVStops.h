@@ -31,6 +31,13 @@
 
 @interface KVStopsByRoute : NSObject
 
+// from request
+@property (  copy, nonatomic, readonly) NSString *routeID;
+
+@property (strong, nonatomic, readonly) NSArray  *directions;
+
+- (instancetype)initWithDictionary:(NSDictionary *)dict routeID:(NSString *)routeID;
+
 @end
 
 // ----------------------------------------------------------------------

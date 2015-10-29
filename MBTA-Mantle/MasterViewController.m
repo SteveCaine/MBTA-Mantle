@@ -10,13 +10,14 @@
 
 #import "DetailViewController.h"
 
-#import "TRequestTypes.h"
+#import "TDataTypes.h"
 
 #import "TServerTime.h"
 #import "TRoutes.h"
 #import "TStops.h"
 
 #import "KVServerTime.h"
+#import "KVRoutes.h"
 #import "KVStops.h"
 
 #import "FilesUtil.h"
@@ -93,10 +94,13 @@ enum {
 				obj = [[KVServerTime alloc] initWithDictionary:dict];
 				break;
 			case TRequest_routes:
+				obj = [[KVRoutes alloc] initWithDictionary:dict];
 				break;
 			case TRequest_routesbystop:
+				obj = [[KVRoutesByStop alloc] initWithDictionary:dict];
 				break;
 			case TRequest_stopsbyroute:
+				obj = [[KVStopsByRoute alloc] initWithDictionary:dict routeID:@"?"];
 				break;
 			case TRequest_stopsbylocation: {
 				CLLocationCoordinate2D location = { 41, -71 };
@@ -244,6 +248,7 @@ enum {
 	
 	cell.detailTextLabel.text = subtitle_idle;
 	
+	/** /
 	if (indexPath.section == section_kvcoding) {
 		switch (indexPath.row + 1) {
 			case TRequest_servertime:
@@ -255,6 +260,7 @@ enum {
 				break;
 		}
 	}
+	/ **/
 	
 	return cell;
 }

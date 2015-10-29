@@ -6,8 +6,54 @@
 //  Copyright (c) 2015 Steve Caine. All rights reserved.
 //
 
-#import "TRequestTypes.h"
+#import "TDataTypes.h"
 
+// ----------------------------------------------------------------------
+
+@implementation TRouteModes
+
++ (NSString *)nameForMode:(RouteMode)mode {
+	if (mode >= RouteMode_begin && mode < RouteModes_end) {
+		return [self modes][mode];
+	}
+	return nil;
+}
+
+// "xxx-name-xxx" => enum (find mode name within -name-)
++ (RouteMode)findModeInName:(NSString *)name {
+	RouteMode result = mode_unknown;
+	if (name.length) {
+		for (RouteMode mode = RouteMode_begin; mode != RouteModes_end; ++mode) {
+			NSString *str = [self modes][mode];
+			if ([name rangeOfString:str].location != NSNotFound) {
+				result = mode;
+				break;
+			}
+		}
+	}
+	return result;
+}
+
++ (NSArray *)modes {
+	static NSArray *_modes;
+	if (_modes == nil) {
+		_modes = @[
+				   @"(unknown)",
+				   @"Subway",
+				   @"Rail",
+				   @"Bus",
+				   @"Boat"
+				   ];
+	}
+	return _modes;
+}
+
+@end
+
+// ----------------------------------------------------------------------
+
+// ----------------------------------------------------------------------
+#pragma mark -
 // ----------------------------------------------------------------------
 
 @implementation TRequestTypes

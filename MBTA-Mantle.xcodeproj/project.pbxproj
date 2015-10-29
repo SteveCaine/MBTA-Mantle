@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E1311E41BE2749C0083EE0D /* KVRoutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E1311E31BE2749C0083EE0D /* KVRoutes.m */; };
+		8E1311E71BE276940083EE0D /* TDataTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E1311E61BE276940083EE0D /* TDataTypes.m */; };
 		8EB1F5011BDFE36400D2D7C1 /* KVServerTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB1F5001BDFE36400D2D7C1 /* KVServerTime.m */; };
 		8EB1F5051BDFE7DD00D2D7C1 /* KVStops.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB1F5041BDFE7DD00D2D7C1 /* KVStops.m */; };
 		8EE425901BDED4F8007054D0 /* Debug_iOS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4254B1BDED4F8007054D0 /* Debug_iOS.cpp */; };
@@ -21,7 +23,6 @@
 		8EE425E01BDEFF21007054D0 /* 5-stopsbylocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EE425DB1BDEFF21007054D0 /* 5-stopsbylocation.json */; };
 		8EE425E71BDF0046007054D0 /* TServerTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE425E61BDF0046007054D0 /* TServerTime.m */; };
 		8EE425EA1BDF02D3007054D0 /* TRoutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE425E91BDF02D3007054D0 /* TRoutes.m */; };
-		8EE425ED1BDF2115007054D0 /* TRequestTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE425EC1BDF2115007054D0 /* TRequestTypes.m */; };
 		8EE425F01BDF2D2F007054D0 /* TStops.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE425EF1BDF2D2F007054D0 /* TStops.m */; };
 		8EE425F21BDF3747007054D0 /* 5b-stopsbylocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EE425F11BDF3747007054D0 /* 5b-stopsbylocation.json */; };
 		8EFE67061BDECDC80024D6AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFE67051BDECDC80024D6AF /* Foundation.framework */; };
@@ -54,6 +55,10 @@
 
 /* Begin PBXFileReference section */
 		3FC9FC1A41E744830237DD54 /* Pods-MBTA-Mantle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBTA-Mantle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MBTA-Mantle/Pods-MBTA-Mantle.debug.xcconfig"; sourceTree = "<group>"; };
+		8E1311E21BE2749C0083EE0D /* KVRoutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KVRoutes.h; path = "KV-Data/KVRoutes.h"; sourceTree = "<group>"; };
+		8E1311E31BE2749C0083EE0D /* KVRoutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KVRoutes.m; path = "KV-Data/KVRoutes.m"; sourceTree = "<group>"; };
+		8E1311E51BE276940083EE0D /* TDataTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDataTypes.h; path = "MBTA-Data/TDataTypes.h"; sourceTree = "<group>"; };
+		8E1311E61BE276940083EE0D /* TDataTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDataTypes.m; path = "MBTA-Data/TDataTypes.m"; sourceTree = "<group>"; };
 		8EB1F4FF1BDFE36400D2D7C1 /* KVServerTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KVServerTime.h; path = "KV-Data/KVServerTime.h"; sourceTree = "<group>"; };
 		8EB1F5001BDFE36400D2D7C1 /* KVServerTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KVServerTime.m; path = "KV-Data/KVServerTime.m"; sourceTree = "<group>"; };
 		8EB1F5031BDFE7DD00D2D7C1 /* KVStops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KVStops.h; path = "KV-Data/KVStops.h"; sourceTree = "<group>"; };
@@ -80,8 +85,6 @@
 		8EE425E61BDF0046007054D0 /* TServerTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TServerTime.m; path = "MBTA-Data/TServerTime.m"; sourceTree = "<group>"; };
 		8EE425E81BDF02D3007054D0 /* TRoutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRoutes.h; path = "MBTA-Data/TRoutes.h"; sourceTree = "<group>"; };
 		8EE425E91BDF02D3007054D0 /* TRoutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRoutes.m; path = "MBTA-Data/TRoutes.m"; sourceTree = "<group>"; };
-		8EE425EB1BDF2115007054D0 /* TRequestTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRequestTypes.h; path = "MBTA-Data/TRequestTypes.h"; sourceTree = "<group>"; };
-		8EE425EC1BDF2115007054D0 /* TRequestTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRequestTypes.m; path = "MBTA-Data/TRequestTypes.m"; sourceTree = "<group>"; };
 		8EE425EE1BDF2D2F007054D0 /* TStops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TStops.h; path = "MBTA-Data/TStops.h"; sourceTree = "<group>"; };
 		8EE425EF1BDF2D2F007054D0 /* TStops.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TStops.m; path = "MBTA-Data/TStops.m"; sourceTree = "<group>"; };
 		8EE425F11BDF3747007054D0 /* 5b-stopsbylocation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "5b-stopsbylocation.json"; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 			children = (
 				8EB1F4FF1BDFE36400D2D7C1 /* KVServerTime.h */,
 				8EB1F5001BDFE36400D2D7C1 /* KVServerTime.m */,
+				8E1311E21BE2749C0083EE0D /* KVRoutes.h */,
+				8E1311E31BE2749C0083EE0D /* KVRoutes.m */,
 				8EB1F5031BDFE7DD00D2D7C1 /* KVStops.h */,
 				8EB1F5041BDFE7DD00D2D7C1 /* KVStops.m */,
 			);
@@ -200,12 +205,12 @@
 		8EE425E41BDEFFE6007054D0 /* MBTA-Data */ = {
 			isa = PBXGroup;
 			children = (
+				8E1311E51BE276940083EE0D /* TDataTypes.h */,
+				8E1311E61BE276940083EE0D /* TDataTypes.m */,
 				8EE425E51BDF0046007054D0 /* TServerTime.h */,
 				8EE425E61BDF0046007054D0 /* TServerTime.m */,
 				8EE425E81BDF02D3007054D0 /* TRoutes.h */,
 				8EE425E91BDF02D3007054D0 /* TRoutes.m */,
-				8EE425EB1BDF2115007054D0 /* TRequestTypes.h */,
-				8EE425EC1BDF2115007054D0 /* TRequestTypes.m */,
 				8EE425EE1BDF2D2F007054D0 /* TStops.h */,
 				8EE425EF1BDF2D2F007054D0 /* TStops.m */,
 			);
@@ -433,13 +438,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EE425E71BDF0046007054D0 /* TServerTime.m in Sources */,
+				8E1311E71BE276940083EE0D /* TDataTypes.m in Sources */,
 				8EFE67161BDECDC80024D6AF /* AppDelegate.m in Sources */,
 				8EE425911BDED4F8007054D0 /* Debug_iOS.m in Sources */,
 				8EE425901BDED4F8007054D0 /* Debug_iOS.cpp in Sources */,
-				8EE425ED1BDF2115007054D0 /* TRequestTypes.m in Sources */,
 				8EE425EA1BDF02D3007054D0 /* TRoutes.m in Sources */,
 				8EFE671C1BDECDC80024D6AF /* MasterViewController.m in Sources */,
 				8EFE67121BDECDC80024D6AF /* main.m in Sources */,
+				8E1311E41BE2749C0083EE0D /* KVRoutes.m in Sources */,
 				8EB1F5011BDFE36400D2D7C1 /* KVServerTime.m in Sources */,
 				8EFE671F1BDECDC80024D6AF /* DetailViewController.m in Sources */,
 				8EE425C61BDED52D007054D0 /* FolderWatcher.m in Sources */,

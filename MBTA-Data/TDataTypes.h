@@ -1,5 +1,5 @@
 //
-//  TRequestTypes.h
+//  TDataTypes.h
 //  MBTA-Mantle
 //
 //  Created by Steve Caine on 10/26/15.
@@ -8,6 +8,30 @@
 
 #import <Foundation/Foundation.h>
 
+// ----------------------------------------------------------------------
+
+typedef enum : NSUInteger {
+	mode_unknown,
+	mode_Subway, // there are two Subway modes: Green Line and everything else
+	mode_Rail,	 // so 'mode_Subway' is part of our logic to combine them
+	mode_Bus,
+	mode_Boat,
+	
+	RouteModes_end,
+	RouteMode_begin = mode_Subway,
+	
+	RouteModesCount = RouteModes_end - RouteMode_begin
+} RouteMode;
+
+@interface TRouteModes : NSObject
+
++ (NSString *)nameForMode:(RouteMode)mode;
++ (RouteMode)findModeInName:(NSString *)name;
+
+@end
+
+// ----------------------------------------------------------------------
+#pragma mark -
 // ----------------------------------------------------------------------
 
 typedef enum TRequestTypes {
