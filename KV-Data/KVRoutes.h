@@ -16,7 +16,7 @@
 
 @interface KVRouteDirection : NSObject
 
-@property (assign, nonatomic, readonly) NSNumber	*direction_id;
+@property (  copy, nonatomic, readonly) NSNumber	*direction_id;
 @property (  copy, nonatomic, readonly) NSString	*direction_name;
 @property (strong, nonatomic, readonly) NSArray		*stops;
 

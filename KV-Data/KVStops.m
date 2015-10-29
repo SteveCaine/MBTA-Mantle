@@ -13,17 +13,24 @@
 // ----------------------------------------------------------------------
 
 @interface KVStop ()
+@property (assign, nonatomic, readwrite) CLLocationCoordinate2D location;
+
 @property (  copy, nonatomic, readonly) NSNumber *stop_order;
 @property (  copy, nonatomic, readonly) NSNumber *stop_lat;
 @property (  copy, nonatomic, readonly) NSNumber *stop_lon;
 @end
 
+// ----------------------------------------------------------------------
+
 @interface KVStopsByRoute ()
 @property (strong, nonatomic, readonly)  NSArray *direction;
 @end
 
+// ----------------------------------------------------------------------
+
 @interface KVStopsByLocation ()
 @property (strong, nonatomic, readonly)  NSArray *stop;  // of NSDictionary
+
 @property (strong, nonatomic, readwrite) NSArray *stops; // of KVStop
 @end
 
@@ -39,13 +46,12 @@
 		[self setValuesForKeysWithDictionary:dict];
 		if (_stop_order)
 			_order = [_stop_order integerValue];
+		if (_stop_lat && _stop_lon) {
+			_location.latitude  = [_stop_lat doubleValue];
+			_location.longitude = [_stop_lon doubleValue];
+		}
 	}
 	return self;
-}
-
-- (CLLocationCoordinate2D) location {
-	CLLocationCoordinate2D result = { [self.stop_lat doubleValue], [self.stop_lon doubleValue] };
-	return result;
 }
 
 - (NSString *)description {
@@ -122,7 +128,7 @@
 				KVStop *kvStop = [[KVStop alloc] initWithDictionary:nsStop];
 				[kvStops addObject:kvStop];
 			}
-			_stops = [kvStops copy];
+			_stops = kvStops;
 		}
 		_location = location;
 	}

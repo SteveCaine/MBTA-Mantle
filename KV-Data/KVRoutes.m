@@ -23,7 +23,7 @@
 @end
 
 @interface KVRouteMode ()
-@property (assign, nonatomic, readonly) NSString *route_type;
+@property (  copy, nonatomic, readonly) NSString *route_type;
 @property (strong, nonatomic, readonly) NSArray *route;
 @end
 
@@ -46,7 +46,7 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dict {
 	self = [super init];
 	if (self) {
-		[self setValuesForKeysWithDictionary:dict];
+		[self setValuesForKeysWithDictionary:dict]; // loads '_stop' array
 		if (_stop.count) {
 			NSMutableArray *kvStops = [NSMutableArray array];
 			for (NSDictionary *nsStop in _stop) {
@@ -115,7 +115,7 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dict {
 	self = [super init];
 	if (self) {
-		[self setValuesForKeysWithDictionary:dict];
+		[self setValuesForKeysWithDictionary:dict]; // loads '_route' array
 		if (_route.count) {
 			NSMutableArray *kvRoutes = [NSMutableArray array];
 			for (NSDictionary *nsRoute in _route) {
