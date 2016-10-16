@@ -59,6 +59,8 @@
 		8E1311E31BE2749C0083EE0D /* KVRoutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KVRoutes.m; path = "KV-Data/KVRoutes.m"; sourceTree = "<group>"; };
 		8E1311E51BE276940083EE0D /* TDataTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDataTypes.h; path = "MBTA-Data/TDataTypes.h"; sourceTree = "<group>"; };
 		8E1311E61BE276940083EE0D /* TDataTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDataTypes.m; path = "MBTA-Data/TDataTypes.m"; sourceTree = "<group>"; };
+		8E4081531DB3434400759CAE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8E4081551DB3434C00759CAE /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		8EB1F4FF1BDFE36400D2D7C1 /* KVServerTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KVServerTime.h; path = "KV-Data/KVServerTime.h"; sourceTree = "<group>"; };
 		8EB1F5001BDFE36400D2D7C1 /* KVServerTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KVServerTime.m; path = "KV-Data/KVServerTime.m"; sourceTree = "<group>"; };
 		8EB1F5031BDFE7DD00D2D7C1 /* KVStops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KVStops.h; path = "KV-Data/KVStops.h"; sourceTree = "<group>"; };
@@ -220,6 +222,8 @@
 		8EFE66F91BDECDC80024D6AF = {
 			isa = PBXGroup;
 			children = (
+				8E4081531DB3434400759CAE /* README.md */,
+				8E4081551DB3434C00759CAE /* LICENSE */,
 				8EE425471BDED4F8007054D0 /* DebugUtil */,
 				8EE425BC1BDED52D007054D0 /* FilesUtil */,
 				8EB1F5021BDFE36A00D2D7C1 /* KV-Data */,

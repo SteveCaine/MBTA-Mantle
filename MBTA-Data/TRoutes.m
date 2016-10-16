@@ -192,9 +192,8 @@
 		}
 		[mode_routes addObjectsFromArray:mode.routes];
 	}
-	MyLog(@" self.all_routes => %@", self.all_routes);
-	MyLog(@" self.routes_by_mode_name => %@", self.routes_by_mode_name);
-	return YES;
+
+    return YES;
 }
 
 - (TRoute *)routeByID:(NSString *)routeID {
