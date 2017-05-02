@@ -40,6 +40,7 @@
 		8EFE672A1BDECDC80024D6AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFE67091BDECDC80024D6AF /* UIKit.framework */; };
 		8EFE67321BDECDC80024D6AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8EFE67301BDECDC80024D6AF /* InfoPlist.strings */; };
 		8EFE67341BDECDC80024D6AF /* MBTA_MantleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EFE67331BDECDC80024D6AF /* MBTA_MantleTests.m */; };
+		8EFF73C51EB8F09200FD8C2A /* Debug_ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EFF73C41EB8F09200FD8C2A /* Debug_ObjC.m */; };
 		9AD82806D671FB8F8470DBB7 /* libPods-MBTA-Mantle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F222007106107343F61F3FD9 /* libPods-MBTA-Mantle.a */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +112,9 @@
 		8EFE672F1BDECDC80024D6AF /* MBTA-MantleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MBTA-MantleTests-Info.plist"; sourceTree = "<group>"; };
 		8EFE67311BDECDC80024D6AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8EFE67331BDECDC80024D6AF /* MBTA_MantleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBTA_MantleTests.m; sourceTree = "<group>"; };
+		8EFF73C21EB8F09200FD8C2A /* Debug_iOS.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Debug_iOS.hpp; sourceTree = "<group>"; };
+		8EFF73C31EB8F09200FD8C2A /* Debug_ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debug_ObjC.h; sourceTree = "<group>"; };
+		8EFF73C41EB8F09200FD8C2A /* Debug_ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Debug_ObjC.m; sourceTree = "<group>"; };
 		C35D81EABDD2FB0696B4E530 /* Pods-MBTA-Mantle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBTA-Mantle.release.xcconfig"; path = "Pods/Target Support Files/Pods-MBTA-Mantle/Pods-MBTA-Mantle.release.xcconfig"; sourceTree = "<group>"; };
 		F222007106107343F61F3FD9 /* libPods-MBTA-Mantle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MBTA-Mantle.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -165,9 +169,12 @@
 		8EE425471BDED4F8007054D0 /* DebugUtil */ = {
 			isa = PBXGroup;
 			children = (
-				8EE4254B1BDED4F8007054D0 /* Debug_iOS.cpp */,
 				8EE4254C1BDED4F8007054D0 /* Debug_iOS.h */,
 				8EE4254D1BDED4F8007054D0 /* Debug_iOS.m */,
+				8EFF73C31EB8F09200FD8C2A /* Debug_ObjC.h */,
+				8EFF73C41EB8F09200FD8C2A /* Debug_ObjC.m */,
+				8EFF73C21EB8F09200FD8C2A /* Debug_iOS.hpp */,
+				8EE4254B1BDED4F8007054D0 /* Debug_iOS.cpp */,
 				8EE4254E1BDED4F8007054D0 /* Debug_JSON.h */,
 				8EE4254F1BDED4F8007054D0 /* Debug_JSON.m */,
 				8EE4258A1BDED4F8007054D0 /* LICENSE */,
@@ -349,7 +356,7 @@
 		8EFE66FA1BDECDC80024D6AF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Steve Caine";
 				TargetAttributes = {
 					8EFE67251BDECDC80024D6AF = {
@@ -448,6 +455,7 @@
 				8EE425901BDED4F8007054D0 /* Debug_iOS.cpp in Sources */,
 				8EE425EA1BDF02D3007054D0 /* TRoutes.m in Sources */,
 				8EFE671C1BDECDC80024D6AF /* MasterViewController.m in Sources */,
+				8EFF73C51EB8F09200FD8C2A /* Debug_ObjC.m in Sources */,
 				8EFE67121BDECDC80024D6AF /* main.m in Sources */,
 				8E1311E41BE2749C0083EE0D /* KVRoutes.m in Sources */,
 				8EB1F5011BDFE36400D2D7C1 /* KVServerTime.m in Sources */,
@@ -524,6 +532,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -585,6 +594,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MBTA-Mantle/MBTA-Mantle-Prefix.pch";
 				INFOPLIST_FILE = "MBTA-Mantle/MBTA-Mantle-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SteveCaine.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -599,6 +609,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MBTA-Mantle/MBTA-Mantle-Prefix.pch";
 				INFOPLIST_FILE = "MBTA-Mantle/MBTA-Mantle-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SteveCaine.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -620,6 +631,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "MBTA-MantleTests/MBTA-MantleTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SteveCaine.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -638,6 +650,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MBTA-Mantle/MBTA-Mantle-Prefix.pch";
 				INFOPLIST_FILE = "MBTA-MantleTests/MBTA-MantleTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SteveCaine.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

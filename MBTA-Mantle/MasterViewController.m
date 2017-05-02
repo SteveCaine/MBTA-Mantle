@@ -59,8 +59,8 @@ enum {
 	NSDictionary * result = nil;
 	
 	NSData *data = [NSData dataWithContentsOfFile:jsonPath];
-	if ([data length]) {
-		MyLog(@"%s read %i bytes", __FUNCTION__, data.length);
+	if (data.length) {
+		MyLog(@"%s read %lu bytes", __FUNCTION__, data.length);
 		NSError *error = nil;
 		id dict = nil;
 		
@@ -71,9 +71,9 @@ enum {
 			NSLog(@"Exception thrown: %@", exception);
 		}
 		if (error)
-			NSLog(@"JSON de-serializing error: %@", [error localizedDescription]);
+			NSLog(@"JSON de-serializing error: %@", error.localizedDescription);
 		
-		else if (dict == nil || ![dict isKindOfClass:[NSDictionary class]])
+		else if (dict == nil || ![dict isKindOfClass:NSDictionary.class])
 			NSLog(@"Nil/Invalid JSON.");
 		
 		else {
@@ -123,27 +123,27 @@ enum {
 		NSError *error = nil;
 		switch (requestType) {
 			case TRequest_servertime:
-				obj = [MTLJSONAdapter modelOfClass:[TServerTime class] fromJSONDictionary:dict error:&error];
+				obj = [MTLJSONAdapter modelOfClass:TServerTime.class fromJSONDictionary:dict error:&error];
 				break;
 			case TRequest_routes:
-				obj = [MTLJSONAdapter modelOfClass:[TRoutes class] fromJSONDictionary:dict error:&error];
+				obj = [MTLJSONAdapter modelOfClass:TRoutes.class fromJSONDictionary:dict error:&error];
 				break;
 			case TRequest_routesbystop:
-				obj = [MTLJSONAdapter modelOfClass:[TRoutesByStop class] fromJSONDictionary:dict error:&error];
+				obj = [MTLJSONAdapter modelOfClass:TRoutesByStop.class fromJSONDictionary:dict error:&error];
 				break;
 			case TRequest_stopsbyroute:
-				obj = [MTLJSONAdapter modelOfClass:[TStopsByRoute class] fromJSONDictionary:dict error:&error];
+				obj = [MTLJSONAdapter modelOfClass:TStopsByRoute.class fromJSONDictionary:dict error:&error];
 				// set .routeID here from request
 				break;
 			case TRequest_stopsbylocation:
-				obj = [MTLJSONAdapter modelOfClass:[TStopsByLocation class] fromJSONDictionary:dict error:&error];
+				obj = [MTLJSONAdapter modelOfClass:TStopsByLocation.class fromJSONDictionary:dict error:&error];
 				// set .location here from request
 				break;
 			default:
 				break;
 		}
 		if (error)
-			NSLog(@"dict2Mantle error: %@", [error localizedDescription]);
+			NSLog(@"dict2Mantle error: %@", error.localizedDescription);
 	}
 	return obj;
 }
@@ -273,10 +273,10 @@ enum {
 	UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
 	[cell setSelected:NO animated:YES];
 
-	if (indexPath.row < [self.jsonNames count]) {
+	if (indexPath.row < self.jsonNames.count) {
 		NSString *jsonName = self.jsonNames[indexPath.row];
-		NSString *jsonPath = [[NSBundle mainBundle] pathForResource:jsonName ofType:type_json];
-		if ([jsonPath length]) {
+		NSString *jsonPath = [NSBundle.mainBundle pathForResource:jsonName ofType:type_json];
+		if (jsonPath.length) {
 			BOOL success = NO;
 			
 			switch (indexPath.section) {
@@ -306,10 +306,10 @@ enum {
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-	if ([[segue identifier] isEqualToString:SegueID_DetailVC]) {
+	if ([segue.identifier isEqualToString:SegueID_DetailVC]) {
 //		NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-		NSDate *object = [NSDate date];
-		[[segue destinationViewController] setDetailItem:object];
+		NSDate *object = NSDate.date;
+		[segue.destinationViewController setDetailItem:object];
 	}
 }
 

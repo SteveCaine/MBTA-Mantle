@@ -51,22 +51,22 @@
 
 + (NSValueTransformer *)IDJSONTransformer {
 	return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *value, BOOL *success, NSError *__autoreleasing *error) {
-		return [NSNumber numberWithInteger:[value integerValue]];
+		return [NSNumber numberWithInteger:value.integerValue];
 	}];
 }
 
 + (NSValueTransformer *)stopsJSONTransformer {
-	return [MTLJSONAdapter arrayTransformerWithModelClass:[TStop class]];
+	return [MTLJSONAdapter arrayTransformerWithModelClass:TStop.class];
 }
 
 - (NSString *)description {
-	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass([self class]), self];
+	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass(self.class), self];
 	[result appendFormat:@"\n\tid = %i, name = '%@'", (int)self.ID, self.name];
-	if ([self.stops count]) {
+	if (self.stops.count) {
 		int index = 0;
 		for (TStop *stop in self.stops) {
 			NSString *stop_order = [NSString stringWithFormat:@"%i", (int)stop.order];
-			[result appendFormat:@"\n\t%2i: %@: stop %@ (%@) is at %f, %f (lat/lon)", index++, stop_order, stop.ID, stop.name, [stop location].latitude, [stop location].longitude];
+			[result appendFormat:@"\n\t%2i: %@: stop %@ (%@) is at %f, %f (lat/lon)", index++, stop_order, stop.ID, stop.name, stop.location.latitude, stop.location.longitude];
 		}
 	}
 	return result;
@@ -98,16 +98,16 @@
 }
 
 - (NSString *)description {
-	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass([self class]), self];
+	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass(self.class), self];
 	
-	BOOL numericID = ([self.ID integerValue] != 0);
+	BOOL numericID = (self.ID.integerValue != 0);
 	NSString *strID = (numericID ? [NSString stringWithFormat:@"#%@", self.ID] : [NSString stringWithFormat:@"'%@'",self.ID]);
 	
 	[result appendFormat:@"\n\t\t id = %@, name = '%@'", strID, self.name];
-	if ([self.directions count]) {
+	if (self.directions.count) {
 		int index = 0;
 		for (TRouteDirection *direction in self.directions) {
-			[result appendFormat:@"\n\t%2i: direction '%@' has %lu stops", index++, direction.name, (unsigned long)[direction.stops count]];
+			[result appendFormat:@"\n\t%2i: direction '%@' has %lu stops", index++, direction.name, direction.stops.count];
 		}
 	}
 	return result;
@@ -131,22 +131,22 @@
 
 + (NSValueTransformer *)typeJSONTransformer {
 	return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *value, BOOL *success, NSError *__autoreleasing *error) {
-		return [NSNumber numberWithInteger:[value integerValue]];
+		return [NSNumber numberWithInteger:value.integerValue];
 	}];
 }
 
 + (NSValueTransformer *)routesJSONTransformer {
-	return [MTLJSONAdapter arrayTransformerWithModelClass:[TRoute class]];
+	return [MTLJSONAdapter arrayTransformerWithModelClass:TRoute.class];
 }
 
 - (NSString *)description {
-	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass([self class]), self];
+	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass(self.class), self];
 	[result appendFormat:@"\n\ttype = %i, name = '%@'", (int)self.type, self.name];
-	if ([self.routes count]) {
+	if (self.routes.count) {
 		int index = 0;
 		for (TRoute *route in self.routes) {
 			
-			BOOL numericID = ([route.ID integerValue] != 0);
+			BOOL numericID = (route.ID.integerValue != 0);
 			NSString *strID = (numericID ? [NSString stringWithFormat:@"#%@", route.ID] : [NSString stringWithFormat:@"'%@'",route.ID]);
 			
 			[result appendFormat:@"\n\t%2i: route %@ (%@)", index++, strID, route.name];
@@ -170,14 +170,14 @@
 }
 
 + (NSValueTransformer *)modesJSONTransformer {
-	return [MTLJSONAdapter arrayTransformerWithModelClass:[TRouteMode class]];
+	return [MTLJSONAdapter arrayTransformerWithModelClass:TRouteMode.class];
 }
 
 // post-process our object to cross-reference its contents
 - (BOOL)validate:(NSError **)error {
 	
-	self.all_routes = [NSMutableArray array];
-	self.routes_by_mode_name = [NSMutableDictionary dictionary];
+	self.all_routes = @[].mutableCopy;
+	self.routes_by_mode_name = @{}.mutableCopy;
 	
 	for (TRouteMode *mode in self.modes) {
 		RouteMode route_mode = [TRouteModes findModeInName:mode.name];
@@ -212,8 +212,8 @@
 }
 
 - (NSString *)description {
-	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass([self class]), self];
-	if ([self.modes count]) {
+	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass(self.class), self];
+	if (self.modes.count) {
 		int index = 0;
 		for (TRouteMode *mode in self.modes) {
 			[result appendFormat:@"\n%2i: %@", index++, mode];
@@ -239,13 +239,13 @@
 }
 
 + (NSValueTransformer *)modesJSONTransformer {
-	return [MTLJSONAdapter arrayTransformerWithModelClass:[TRouteMode class]];
+	return [MTLJSONAdapter arrayTransformerWithModelClass:TRouteMode.class];
 }
 
 - (NSString *)description {
-	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass([self class]), self];
+	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass(self.class), self];
 	[result appendFormat:@"\n\tstop = '%@', name = '%@'", self.stopID, self.stopName];
-	if ([self.modes count]) {
+	if (self.modes.count) {
 		int index = 0;
 		for (TRouteMode *mode in self.modes) {
 			[result appendFormat:@"\n%2i: %@", index++, mode];

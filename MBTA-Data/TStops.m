@@ -41,22 +41,22 @@
 
 + (NSValueTransformer *)orderJSONTransformer {
 	return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *value, BOOL *success, NSError *__autoreleasing *error) {
-		return [NSNumber numberWithInteger:[value integerValue]];
+		return [NSNumber numberWithInteger:value.integerValue];
 	}];
 }
 + (NSValueTransformer *)distanceJSONTransformer {
 	return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *value, BOOL *success, NSError *__autoreleasing *error) {
-		return [NSNumber numberWithDouble:[value doubleValue]];
+		return [NSNumber numberWithDouble:value.doubleValue];
 	}];
 }
 + (NSValueTransformer *)stop_latJSONTransformer {
 	return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *value, BOOL *success, NSError *__autoreleasing *error) {
-		return [NSNumber numberWithDouble:[value doubleValue]];
+		return [NSNumber numberWithDouble:value.doubleValue];
 	}];
 }
 + (NSValueTransformer *)stop_lonJSONTransformer {
 	return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *value, BOOL *success, NSError *__autoreleasing *error) {
-		return [NSNumber numberWithDouble:[value doubleValue]];
+		return [NSNumber numberWithDouble:value.doubleValue];
 	}];
 }
 
@@ -85,12 +85,12 @@
 }
 
 + (NSValueTransformer *)directionsJSONTransformer {
-	return [MTLJSONAdapter arrayTransformerWithModelClass:[TRouteDirection class]];
+	return [MTLJSONAdapter arrayTransformerWithModelClass:TRouteDirection.class];
 }
 
 - (NSString *)description {
-	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass([self class]), self];
-	if ([self.directions count]) {
+	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass(self.class), self];
+	if (self.directions.count) {
 		int index = 0;
 		for (TRouteDirection *direction in self.directions) {
 			[result appendFormat:@"\n%2i: %@", index++, direction];
@@ -114,7 +114,7 @@
 }
 
 + (NSValueTransformer *)stopsJSONTransformer {
-	return [MTLJSONAdapter arrayTransformerWithModelClass:[TStop class]];
+	return [MTLJSONAdapter arrayTransformerWithModelClass:TStop.class];
 }
 
 - (NSString *)description {

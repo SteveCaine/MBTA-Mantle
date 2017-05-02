@@ -19,7 +19,7 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	// map all properties by name
-	NSMutableDictionary *result = [[NSDictionary mtl_identityPropertyMapWithModel:[self class]] mutableCopy];
+	NSMutableDictionary *result = [[NSDictionary mtl_identityPropertyMapWithModel:self.class] mutableCopy];
 	
 	// override those where property-name != JSON key
 	NSDictionary *custom = @{
@@ -39,7 +39,7 @@
 
 + (NSValueTransformer *)servertimeJSONTransformer {
 	return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *value, BOOL *success, NSError *__autoreleasing *error) {
-		return [NSDate dateWithTimeIntervalSince1970:[value integerValue]];
+		return [NSDate dateWithTimeIntervalSince1970:value.integerValue];
 	}];
 }
 

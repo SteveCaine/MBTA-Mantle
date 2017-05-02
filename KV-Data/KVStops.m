@@ -56,7 +56,7 @@
 
 - (NSString *)description {
 #if 1
-	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass([self class]), self];
+	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass(self.class), self];
 	
 	BOOL numericID = ([self.stop_id integerValue] != 0);
 	NSString *strID = (numericID ? [NSString stringWithFormat:@"#%@", self.stop_id] : [NSString stringWithFormat:@"'%@'",self.stop_id]);
@@ -89,7 +89,7 @@
 	if (self) {
 		[self setValuesForKeysWithDictionary:dict]; // loads '_direction' array
 		if (_direction.count) {
-			NSMutableArray *kvDirections = [NSMutableArray array];
+			NSMutableArray *kvDirections = @[].mutableCopy;
 			for (NSDictionary *nsDirection in _direction) {
 				KVRouteDirection *kvDirection = [[KVRouteDirection alloc] initWithDictionary:nsDirection];
 				[kvDirections addObject:kvDirection];
@@ -102,7 +102,7 @@
 }
 
 - (NSString *)description {
-	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass([self class]), self];
+	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass(self.class), self];
 	if (self.directions.count) {
 		int index = 0;
 		for (KVRouteDirection *direction in self.directions) {

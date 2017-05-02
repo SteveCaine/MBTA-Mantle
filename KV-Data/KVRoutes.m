@@ -48,7 +48,7 @@
 	if (self) {
 		[self setValuesForKeysWithDictionary:dict]; // loads '_stop' array
 		if (_stop.count) {
-			NSMutableArray *kvStops = [NSMutableArray array];
+			NSMutableArray *kvStops = @[].mutableCopy;
 			for (NSDictionary *nsStop in _stop) {
 				KVStop *kvStop = [[KVStop alloc] initWithDictionary:nsStop];
 				[kvStops addObject:kvStop];
@@ -60,7 +60,7 @@
 }
 
 - (NSString *)description {
-	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass([self class]), self];
+	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass(self.class), self];
 	[result appendFormat:@"\n\tid = '%@', name = '%@'", self.direction_id, self.direction_name];
 	if (self.stops.count) {
 		int index = 0;
@@ -91,7 +91,7 @@
 }
 
 - (NSString *)description {
-	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass([self class]), self];
+	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass(self.class), self];
 	
 	BOOL numericID = ([self.route_id integerValue] != 0);
 	NSString *strID = (numericID ? [NSString stringWithFormat:@"#%@", self.route_id] : [NSString stringWithFormat:@"'%@'",self.route_id]);
@@ -100,7 +100,7 @@
 	if (self.directions.count) {
 		int index = 0;
 		for (KVRouteDirection *direction in self.directions) {
-			[result appendFormat:@"\n\t%2i: direction '%@' has %lu stops", index++, direction.direction_name, (unsigned long)[direction.stops count]];
+			[result appendFormat:@"\n\t%2i: direction '%@' has %lu stops", index++, direction.direction_name, direction.stops.count];
 		}
 	}
 	return result;
@@ -117,7 +117,7 @@
 	if (self) {
 		[self setValuesForKeysWithDictionary:dict]; // loads '_route' array
 		if (_route.count) {
-			NSMutableArray *kvRoutes = [NSMutableArray array];
+			NSMutableArray *kvRoutes = @[].mutableCopy;
 			for (NSDictionary *nsRoute in _route) {
 				KVRoute *kvRoute = [[KVRoute alloc] initWithDictionary:nsRoute];
 				[kvRoutes addObject:kvRoute];
@@ -131,7 +131,7 @@
 }
 
 - (NSString *)description {
-	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass([self class]), self];
+	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass(self.class), self];
 	[result appendFormat:@"\n\ttype = '%i', name = '%@'", (int)self.route_type, self.mode_name];
 	if (self.routes.count) {
 		int index = 0;
@@ -157,7 +157,7 @@
 	if (self) {
 		[self setValuesForKeysWithDictionary:dict];
 		if (_mode.count) {
-			NSMutableArray *kvModes = [NSMutableArray array];
+			NSMutableArray *kvModes = @[].mutableCopy;
 			for (NSDictionary *nsMode in _mode) {
 				KVRouteMode *kvMode = [[KVRouteMode alloc] initWithDictionary:nsMode];
 				[kvModes addObject:kvMode];
@@ -173,7 +173,7 @@
 }
 
 - (NSString *)description {
-	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass([self class]), self];
+	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass(self.class), self];
 	if (self.modes.count) {
 		int index = 0;
 		for (KVRouteMode *mode in self.modes) {
@@ -198,7 +198,7 @@
 }
 
 - (NSString *)description {
-	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass([self class]), self];
+	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p>", NSStringFromClass(self.class), self];
 	[result appendFormat:@"\n\tstop = '%@', name = '%@'", self.stop_id, self.stop_name];
 	if (self.modes.count) {
 		int index = 0;

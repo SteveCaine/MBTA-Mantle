@@ -19,5 +19,5 @@ To simplify this, my [unix-scripts](https://github.com/SteveCaine/unix-scripts) 
 
 This code is distributed under the terms of the MIT license. See file "LICENSE" in this repository for details.
 
-Copyright (c) 2015-16 Steve Caine.<br>
+Copyright (c) 2015-2017 Steve Caine.<br>
 @SteveCaine on github.com
