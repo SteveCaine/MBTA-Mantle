@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		322850A2543C0ADEA5E0C0FF /* libPods-MBTA-Mantle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB1FE0AE6312B6F18E09C3 /* libPods-MBTA-Mantle.a */; };
+		6581EA83AD442D2D81EDF626 /* libPods-MBTA-MantleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF6A455179FDE4D3000057D /* libPods-MBTA-MantleTests.a */; };
 		8E1311E41BE2749C0083EE0D /* KVRoutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E1311E31BE2749C0083EE0D /* KVRoutes.m */; };
 		8E1311E71BE276940083EE0D /* TDataTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E1311E61BE276940083EE0D /* TDataTypes.m */; };
 		8EB1F5011BDFE36400D2D7C1 /* KVServerTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB1F5001BDFE36400D2D7C1 /* KVServerTime.m */; };
@@ -41,7 +43,6 @@
 		8EFE67321BDECDC80024D6AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8EFE67301BDECDC80024D6AF /* InfoPlist.strings */; };
 		8EFE67341BDECDC80024D6AF /* MBTA_MantleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EFE67331BDECDC80024D6AF /* MBTA_MantleTests.m */; };
 		8EFF73C51EB8F09200FD8C2A /* Debug_ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EFF73C41EB8F09200FD8C2A /* Debug_ObjC.m */; };
-		9AD82806D671FB8F8470DBB7 /* libPods-MBTA-Mantle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F222007106107343F61F3FD9 /* libPods-MBTA-Mantle.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +56,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3FC9FC1A41E744830237DD54 /* Pods-MBTA-Mantle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBTA-Mantle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MBTA-Mantle/Pods-MBTA-Mantle.debug.xcconfig"; sourceTree = "<group>"; };
+		1488E1B7F0F6A30597CD4AD3 /* Pods-MBTA-MantleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBTA-MantleTests.debug.xcconfig"; path = "Target Support Files/Pods-MBTA-MantleTests/Pods-MBTA-MantleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6183409F79BE2DAD54039ACF /* Pods-MBTA-Mantle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBTA-Mantle.release.xcconfig"; path = "Target Support Files/Pods-MBTA-Mantle/Pods-MBTA-Mantle.release.xcconfig"; sourceTree = "<group>"; };
+		7E1E5779CC2F335EBA32711D /* Pods-MBTA-Mantle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBTA-Mantle.debug.xcconfig"; path = "Target Support Files/Pods-MBTA-Mantle/Pods-MBTA-Mantle.debug.xcconfig"; sourceTree = "<group>"; };
+		7F755CC5E48C01DECDF692D8 /* Pods-MBTA-MantleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBTA-MantleTests.release.xcconfig"; path = "Target Support Files/Pods-MBTA-MantleTests/Pods-MBTA-MantleTests.release.xcconfig"; sourceTree = "<group>"; };
 		8E1311E21BE2749C0083EE0D /* KVRoutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KVRoutes.h; path = "KV-Data/KVRoutes.h"; sourceTree = "<group>"; };
 		8E1311E31BE2749C0083EE0D /* KVRoutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KVRoutes.m; path = "KV-Data/KVRoutes.m"; sourceTree = "<group>"; };
 		8E1311E51BE276940083EE0D /* TDataTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDataTypes.h; path = "MBTA-Data/TDataTypes.h"; sourceTree = "<group>"; };
@@ -115,8 +119,8 @@
 		8EFF73C21EB8F09200FD8C2A /* Debug_iOS.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Debug_iOS.hpp; sourceTree = "<group>"; };
 		8EFF73C31EB8F09200FD8C2A /* Debug_ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debug_ObjC.h; sourceTree = "<group>"; };
 		8EFF73C41EB8F09200FD8C2A /* Debug_ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Debug_ObjC.m; sourceTree = "<group>"; };
-		C35D81EABDD2FB0696B4E530 /* Pods-MBTA-Mantle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBTA-Mantle.release.xcconfig"; path = "Pods/Target Support Files/Pods-MBTA-Mantle/Pods-MBTA-Mantle.release.xcconfig"; sourceTree = "<group>"; };
-		F222007106107343F61F3FD9 /* libPods-MBTA-Mantle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MBTA-Mantle.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		96CB1FE0AE6312B6F18E09C3 /* libPods-MBTA-Mantle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MBTA-Mantle.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBF6A455179FDE4D3000057D /* libPods-MBTA-MantleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MBTA-MantleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +131,7 @@
 				8EFE67081BDECDC80024D6AF /* CoreGraphics.framework in Frameworks */,
 				8EFE670A1BDECDC80024D6AF /* UIKit.framework in Frameworks */,
 				8EFE67061BDECDC80024D6AF /* Foundation.framework in Frameworks */,
-				9AD82806D671FB8F8470DBB7 /* libPods-MBTA-Mantle.a in Frameworks */,
+				322850A2543C0ADEA5E0C0FF /* libPods-MBTA-Mantle.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,21 +142,13 @@
 				8EFE67281BDECDC80024D6AF /* XCTest.framework in Frameworks */,
 				8EFE672A1BDECDC80024D6AF /* UIKit.framework in Frameworks */,
 				8EFE67291BDECDC80024D6AF /* Foundation.framework in Frameworks */,
+				6581EA83AD442D2D81EDF626 /* libPods-MBTA-MantleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5A3C387E139387039BDEC928 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3FC9FC1A41E744830237DD54 /* Pods-MBTA-Mantle.debug.xcconfig */,
-				C35D81EABDD2FB0696B4E530 /* Pods-MBTA-Mantle.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		8EB1F5021BDFE36A00D2D7C1 /* KV-Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,7 +235,7 @@
 				8EFE672D1BDECDC80024D6AF /* MBTA-MantleTests */,
 				8EFE67041BDECDC80024D6AF /* Frameworks */,
 				8EFE67031BDECDC80024D6AF /* Products */,
-				5A3C387E139387039BDEC928 /* Pods */,
+				BE9C9A221A1C3E68763509A1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -259,7 +255,8 @@
 				8EFE67071BDECDC80024D6AF /* CoreGraphics.framework */,
 				8EFE67091BDECDC80024D6AF /* UIKit.framework */,
 				8EFE67271BDECDC80024D6AF /* XCTest.framework */,
-				F222007106107343F61F3FD9 /* libPods-MBTA-Mantle.a */,
+				96CB1FE0AE6312B6F18E09C3 /* libPods-MBTA-Mantle.a */,
+				CBF6A455179FDE4D3000057D /* libPods-MBTA-MantleTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -310,6 +307,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BE9C9A221A1C3E68763509A1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7E1E5779CC2F335EBA32711D /* Pods-MBTA-Mantle.debug.xcconfig */,
+				6183409F79BE2DAD54039ACF /* Pods-MBTA-Mantle.release.xcconfig */,
+				1488E1B7F0F6A30597CD4AD3 /* Pods-MBTA-MantleTests.debug.xcconfig */,
+				7F755CC5E48C01DECDF692D8 /* Pods-MBTA-MantleTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -317,11 +325,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8EFE67371BDECDC80024D6AF /* Build configuration list for PBXNativeTarget "MBTA-Mantle" */;
 			buildPhases = (
-				C6D461128985950E692DF081 /* Check Pods Manifest.lock */,
+				32BDBC907A56D98515A31148 /* [CP] Check Pods Manifest.lock */,
 				8EFE66FE1BDECDC80024D6AF /* Sources */,
 				8EFE66FF1BDECDC80024D6AF /* Frameworks */,
 				8EFE67001BDECDC80024D6AF /* Resources */,
-				DD3D82C174A774AFB6E57421 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -336,6 +343,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8EFE673A1BDECDC80024D6AF /* Build configuration list for PBXNativeTarget "MBTA-MantleTests" */;
 			buildPhases = (
+				9B1D8DAFA5FC6D4D21599A47 /* [CP] Check Pods Manifest.lock */,
 				8EFE67221BDECDC80024D6AF /* Sources */,
 				8EFE67231BDECDC80024D6AF /* Frameworks */,
 				8EFE67241BDECDC80024D6AF /* Resources */,
@@ -411,34 +419,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C6D461128985950E692DF081 /* Check Pods Manifest.lock */ = {
+		32BDBC907A56D98515A31148 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MBTA-Mantle-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DD3D82C174A774AFB6E57421 /* Copy Pods Resources */ = {
+		9B1D8DAFA5FC6D4D21599A47 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MBTA-MantleTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MBTA-Mantle/Pods-MBTA-Mantle-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -587,13 +601,14 @@
 		};
 		8EFE67381BDECDC80024D6AF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3FC9FC1A41E744830237DD54 /* Pods-MBTA-Mantle.debug.xcconfig */;
+			baseConfigurationReference = 7E1E5779CC2F335EBA32711D /* Pods-MBTA-Mantle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MBTA-Mantle/MBTA-Mantle-Prefix.pch";
 				INFOPLIST_FILE = "MBTA-Mantle/MBTA-Mantle-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.SteveCaine.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -602,13 +617,14 @@
 		};
 		8EFE67391BDECDC80024D6AF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C35D81EABDD2FB0696B4E530 /* Pods-MBTA-Mantle.release.xcconfig */;
+			baseConfigurationReference = 6183409F79BE2DAD54039ACF /* Pods-MBTA-Mantle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MBTA-Mantle/MBTA-Mantle-Prefix.pch";
 				INFOPLIST_FILE = "MBTA-Mantle/MBTA-Mantle-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.SteveCaine.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -617,6 +633,7 @@
 		};
 		8EFE673B1BDECDC80024D6AF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1488E1B7F0F6A30597CD4AD3 /* Pods-MBTA-MantleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MBTA-Mantle.app/MBTA-Mantle";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -640,6 +657,7 @@
 		};
 		8EFE673C1BDECDC80024D6AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F755CC5E48C01DECDF692D8 /* Pods-MBTA-MantleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MBTA-Mantle.app/MBTA-Mantle";
 				FRAMEWORK_SEARCH_PATHS = (
